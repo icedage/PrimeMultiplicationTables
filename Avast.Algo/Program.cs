@@ -26,8 +26,8 @@ namespace Avast.Algo
                     Console.Write("{0,5}{1,2}", number, "|");
 
                 var arrayPrimes = primes.ToArray();
-
                 Console.WriteLine();
+                
                 for (int i = 0; i < table.Count(); i++)
                 {
                     Console.Write("{0,0}{1,5}{2,2}", "|", arrayPrimes[i], "|");

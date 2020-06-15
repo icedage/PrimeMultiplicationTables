@@ -13,19 +13,19 @@ namespace Avast.Algo
 
         static IEnumerable<int> Primes()
         {
-            List<int> cache = new List<int>();
+            var inMemory = new List<int>();
 
-            var primeNumbers = Enumerable.Range(2, int.MaxValue - 2).Select(candidate => new
+            var primeNumbers = Enumerable.Range(2, int.MaxValue - 2).Select(number => new
             {
-                Sqrt = (int)Math.Sqrt(candidate), 
-                Current = candidate
-            }).Where(number => !cache.TakeWhile(c => c <= number.Sqrt)
-                    .Any(cachedNumber => number.Current % cachedNumber == 0))
-                    .Select(p => p.Current);
+                Sqrt = (int)Math.Sqrt(number), 
+                Current = number
+            }).Where(number => !inMemory.TakeWhile(c => c <= number.Sqrt)
+              .Any(cachedNumber => number.Current % cachedNumber == 0))
+              .Select(p => p.Current);
 
             foreach (var prime in primeNumbers)
             {
-                cache.Add(prime);
+                inMemory.Add(prime);
                 yield return prime;
             }
         }
