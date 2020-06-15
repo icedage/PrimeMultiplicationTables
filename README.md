@@ -1,1 +1,1 @@
-# PrimeMultiplicationTables
+# Prime Multiplication Tables
